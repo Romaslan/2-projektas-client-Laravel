@@ -17,7 +17,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('client.index');
+        $clients = Client::all();
+        return view('client.index',['clients' => $clients]);
     }
 
     /**
@@ -43,8 +44,8 @@ class ClientController extends Controller
 
         $client->name = $request->client_name;
         $client->surname = $request->client_surname;
-        $client->username = $request->client_usename;
-        $client->company_id = $request->client_company_id;
+        $client->username = $request->client_username;
+        $client->company_id = $request->client_companyid;
         $client->image_url = $request->client_imageurl;
 
         $client->save();
@@ -61,7 +62,7 @@ class ClientController extends Controller
      */
     public function show(client $client)
     {
-        //
+        return view('client.show', ['client' => $client]);
     }
 
     /**
@@ -72,7 +73,7 @@ class ClientController extends Controller
      */
     public function edit(client $client)
     {
-        //
+        return view('client.edit', ['client' => $client]);
     }
 
     /**
@@ -82,9 +83,17 @@ class ClientController extends Controller
      * @param  \App\Models\client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateclientRequest $request, client $client)
+    public function update(Request $request, client $client)
     {
-        //
+        $client->name = $request->client_name;
+        $client->surname = $request->client_surname;
+        $client->username = $request->client_username;
+        $client->company_id = $request->client_companyid;
+        $client->image_url = $request->client_imageurl;
+
+        $client->save();
+
+        return redirect()->route('client.index');
     }
 
     /**
@@ -95,6 +104,7 @@ class ClientController extends Controller
      */
     public function destroy(client $client)
     {
-        //
+        $client->delete();
+        return redirect()->route('client.index');
     }
 }
