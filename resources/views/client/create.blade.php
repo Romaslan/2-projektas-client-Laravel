@@ -12,7 +12,7 @@
     <div class="container">
         <h1>Create Client</h1>
 
-        <form method='POST' action='{{route('client.store')}}' >
+        <form method='POST' action="{{route('client.store')}}" >
             <!-- ID
             name(string)
             surname(string)
