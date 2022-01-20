@@ -6,6 +6,8 @@ use App\Models\client;
 use App\Http\Requests\StoreclientRequest;
 use App\Http\Requests\UpdateclientRequest;
 
+use Illuminate\Http\Request;
+
 class ClientController extends Controller
 {
     /**
@@ -15,7 +17,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        return view('client.index');
     }
 
     /**
@@ -25,7 +27,8 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('client.create');
+
     }
 
     /**
@@ -34,9 +37,20 @@ class ClientController extends Controller
      * @param  \App\Http\Requests\StoreclientRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreclientRequest $request)
+    public function store(Request $request)
     {
-        //
+        $client = new Client;
+
+        $client->name = $request->client_name;
+        $client->surname = $request->client_surname;
+        $client->username = $request->client_usename;
+        $client->company_id = $request->client_company_id;
+        $client->image_url = $request->client_imageurl;
+
+        $client->save();
+
+        return redirect()->route('client.index');
+        
     }
 
     /**
