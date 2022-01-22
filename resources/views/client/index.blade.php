@@ -39,7 +39,8 @@
         <td>{{$client->name}}</td>
         <td>{{$client->surname}}</td>
         <td>{{$client->username}}</td>
-        <td>{{$client->company_id}}</td>
+        <!--<td>{{$client->company_id}}</td>-->
+        <td>{{$client->clientCompany->name}}</td>
         <td>{{$client->image_url}}</td>
         <td>
             <a class="btn btn-primary" href="{{route('client.edit', [$client])}}">Edit</a>

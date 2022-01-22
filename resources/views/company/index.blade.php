@@ -12,9 +12,19 @@
     <div class="container">
     <h1>Company Index</h1>
 
+@if (session()->has('error_message'))
+    <div class="alert alert-danger">
+        {{session()->get('error_message')}}
+    </div>   
+@endif
 
+@if (session()->has('success_message'))
+        <div class="alert alert-success">
+            {{session()->get('success_message')}}
+        </div>   
+@endif
 
-    @if (count($companies) == 0)
+@if (count($companies) == 0)
     <p>There is no company</p>
 @endif
 
