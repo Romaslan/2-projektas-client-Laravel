@@ -16,11 +16,11 @@ class CompanyFactory extends Factory
         return [
              // // ID
             // name(string)
-            // type(string)
+            // type(insignedBigInt)
             // description(string)
 
             'name' => $this->faker->company(),
-            'type' => 'UAB',
+            'type_id' => rand(1,4),
             'description' => $this->faker->paragraph(15)
         ];
     }
