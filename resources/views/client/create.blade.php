@@ -23,7 +23,21 @@
             <input class="form-control" type='text' name="client_name" value="Test" placeholder="Client Name"/>
             <input  class="form-control" type='text' name="client_surname" value="Test" placeholder="Client Surname"/>
             <input  class="form-control" type='text' name="client_username" value="Test" placeholder="Client Username"/>
-            <input class="form-control" type='text' name="client_companyid" value="4" placeholder="Client Company ID"/>
+           <!-- <input class="form-control" type='text' name="client_companyid" value="4" placeholder="Client Company ID"/>-->
+            
+            <select name="client_companyid" class="form-control">
+               <!-- @for($i=1; $i<=250; $i++)
+                    <option value="{{$i}}">{{$i}}</option>
+                @endfor-->
+
+                 
+                @foreach ($select_values as $company)
+                    <option value="{{$company->id}}">{{$company->name}}</option>
+                @endforeach
+
+            </select>
+
+
             <input class="form-control" type='text' name="client_imageurl" value="Test" placeholder="Client URL"/>
             @csrf
 

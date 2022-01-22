@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\client;
+
+use App\Models\Company;
+
 use App\Http\Requests\StoreclientRequest;
 use App\Http\Requests\UpdateclientRequest;
 
@@ -28,7 +31,15 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('client.create');
+        // $select_values = array();
+
+        // for($i=1;$i<=250;$i++) {
+        //     $select_values[] = $i;
+        //  }
+
+        $select_values = Company::all();
+
+        return view('client.create',['select_values' => $select_values]);
 
     }
 
@@ -73,7 +84,8 @@ class ClientController extends Controller
      */
     public function edit(client $client)
     {
-        return view('client.edit', ['client' => $client]);
+        $select_values = Company::all();
+        return view('client.edit', ['client' => $client, 'select_values' => $select_values]);
     }
 
     /**

@@ -17,7 +17,25 @@
             <input class="form-control" type='text' name="client_name" value="{{$client->name}}" placeholder="Client Name"/>
             <input  class="form-control" type='text' name="client_surname" value="{{$client->surname}}" placeholder="Client Surname"/>
             <input  class="form-control" type='text' name="client_username" value="{{$client->username}}" placeholder="Client Username"/>
-            <input class="form-control" type='text' name="client_companyid" value="{{$client->company_id}}" placeholder="Client Company ID"/>
+            <!--<input class="form-control" type='text' name="client_companyid" value="{{$client->company_id}}" placeholder="Client Company ID"/>-->
+
+            <select name="client_companyid" class="form-control">
+               <!-- @for($i=1; $i<=250; $i++)
+                    <option value="{{$i}}">{{$i}}</option>
+                @endfor-->
+
+                 
+                @foreach ($select_values as $company)
+                    @if ($company->id == $client->company_id)
+                        <option value="{{$company->id}}"selected>{{$company->name}}</option>
+                    @else
+                        <option value="{{$company->id}}">{{$company->name}}</option>
+                    @endif
+                @endforeach
+
+            </select>
+
+
             <input class="form-control" type='text' name="client_imageurl" value="{{$client->image_url}}" placeholder="Client URL"/>
             @csrf
 
