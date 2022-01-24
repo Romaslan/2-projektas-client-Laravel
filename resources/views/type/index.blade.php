@@ -37,6 +37,7 @@
     <th>Name</th>
     <th>Short name</th>
     <th>Description</th>
+    <th>Total Companies</th>
     <th>Actions</th>
 </tr>
 
@@ -47,6 +48,7 @@
         <td>{{$type->name}}</td>
         <td>{{$type->short_name}}</td>
         <td>{{$type->description}}</td>
+        <td>{{count($type->typeCompanies)}}</td>
         <td>
             <a class="btn btn-primary" href="{{route('type.edit', [$type])}}">Edit</a>
             <a class="btn btn-secondary" href="{{route('type.show', [$type])}}">Show</a>

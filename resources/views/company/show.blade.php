@@ -13,7 +13,7 @@
         <h2> {{$company->name}} </h2>
             <p>Id : {{$company->id}}</p>
         <p>Name : {{$company->name}}</p>
-        <p>Type : {{$company->type}}</p>
+        <p>Type : {{$company->companyType->name}}</p>
         <p>Description : {{$company->description}}</p>
 
         <!--$company->companyClients->name ????-->

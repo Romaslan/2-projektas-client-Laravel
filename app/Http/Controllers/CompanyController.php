@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Type;
+
 use App\Http\Requests\StoreCompanyRequest;
 use App\Http\Requests\UpdateCompanyRequest;
 
@@ -28,7 +30,8 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        return view('company.create');
+        $types = Type::all();
+        return view('company.create',['types'=>$types]);
     }
 
     /**
@@ -42,7 +45,7 @@ class CompanyController extends Controller
         $company = new Company;
 
         $company->name = $request->company_name;
-        $company->type = $request->company_type;
+        $company->type_id = $request->company_type;
         $company->description = $request->company_description;
 
         $company->save();
@@ -69,7 +72,8 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('company.edit',['company' => $company]);
+        $types = Type::all();
+        return view('company.edit',['company' => $company, 'types' => $types]);
     }
 
     /**
@@ -82,7 +86,7 @@ class CompanyController extends Controller
     public function update(Request $request, Company $company)
     {
         $company->name = $request->company_name;
-        $company->type = $request->company_type;
+        $company->type_id = $request->company_type;
         $company->description = $request->company_description;
 
         $company->save();
