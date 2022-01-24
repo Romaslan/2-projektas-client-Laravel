@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Create Company</h1>
+        <h1>Create Type</h1>
 
-        <form method='POST' action='{{route('company.store')}}' >
+        <form method='POST' action='{{route('type.store')}}' >
 
             {{-- 
              // ID
@@ -21,13 +21,13 @@
             // description(string) --}}
 
 
-            <input class="form-control" type='text' name="company_name" value="Test" placeholder="Company Name"/>
-            <input  class="form-control" type='text' name="company_type" value="Test" placeholder="Company Type"/>
-            <input  class="form-control" type='text' name="company_description" value="Test"  placeholder="Company Description"/>
+            <input class="form-control" type='text' name="type_name" value="Test" placeholder="Type Name"/>
+            <input  class="form-control" type='text' name="type_shortname" value="Test" placeholder="Type Short Name"/>
+            <input  class="form-control" type='text' name="type_description" value="Test"  placeholder="Type Description"/>
             @csrf
 
             <button class="btn btn-primary" type='submit'>Add</button>
-            <a class="btn btn-secondary" href="{{route('company.index')}}">Back</a>
+            <a class="btn btn-secondary" href="{{route('type.index')}}">Back</a>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

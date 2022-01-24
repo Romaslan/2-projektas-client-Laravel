@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     use HasFactory;
+
+    public function typeCompanies() {
+        return $this->hasMany(Company::class, 'type_id', 'id');
+    }
 }

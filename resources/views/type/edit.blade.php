@@ -9,19 +9,19 @@
 
 </head>
 <body>
-    <div class="container">
-        <h1>Edit Company</h1>
+    <div class="type">
+        <h1>Edit Type</h1>
 
-        <form method='POST' action='{{route('company.update', [$company])}}' >
+        <form method='POST' action='{{route('type.update', [$type])}}' >
 
-            <input class="form-control" type='text' name="company_name" value="{{$company->name}}" placeholder="Company Name"/>
-            <input  class="form-control" type='text' name="company_type" value="{{$company->type}}" placeholder="Company Type"/>
-            <input  class="form-control" type='text' name="company_description" value="{{$company->description}}"  placeholder="Company Description"/>
+            <input class="form-control" type='text' name="type_name" value="{{$type->name}}" placeholder="Type Name"/>
+            <input  class="form-control" type='text' name="type_shortname" value="{{$type->short_name}}" placeholder="Type Short Name"/>
+            <input  class="form-control" type='text' name="type_description" value="{{$type->description}}"  placeholder="Type Description"/>
         
             @csrf
 
             <button class="btn btn-primary" type='submit'>Edit</button>
-            <a class="btn btn-secondary" href="{{route('company.index')}}">Back</a>
+            <a class="btn btn-secondary" href="{{route('type.index')}}">Back</a>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

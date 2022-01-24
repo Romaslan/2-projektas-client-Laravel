@@ -10,47 +10,39 @@
 </head>
 <body>
     <div class="container">
-        <h2> {{$company->name}} </h2>
-            <p>Id : {{$company->id}}</p>
-        <p>Name : {{$company->name}}</p>
-        <p>Type : {{$company->type}}</p>
-        <p>Description : {{$company->description}}</p>
+        <h2> {{$type->name}} </h2>
+            <p>Id : {{$type->id}}</p>
+        <p>Name : {{$type->name}}</p>
+        <p>Short Name : {{$type->short_name}}</p>
+        <p>Description : {{$type->description}}</p>
 
         <!--$company->companyClients->name ????-->
-        @if(count($company->companyClients) == 0) 
-            <p>There is no clients </p>
+        @if(count($type->typeCompanies) == 0) 
+            <p>There is no companies </p>
         @else
             <table class="table table-striped">
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
-                        <th>Surname</th>
-                        <th>Image</th>
-                        <th>Action</th>
+                        <th>Description</th>
                     </tr>
-                @foreach ($company->companyClients as $client)
+                @foreach ($type->typeCompanies as $company)
                     <tr>
-                        <td>{{$client->id}}</td>
-                        <td>{{$client->name}}</td>
-                        <td>{{$client->surname}}</td>
-                        <td><img src='{{$client->image_url}}' alt='{{$client->name}}' width="200" height="200"/></td>
-                        <td>
-                            <form method="post" action='{{route('client.destroy', [$client])}}''>
-                                @csrf
-                                <button class="btn btn-danger" type="submit">Delete</button>
-                            </form>
-                        </td>
+                        <td>{{$company->id}}</td>
+                        <td>{{$company->name}}</td>
+                        <td>{{$company->description}}</td>
+                        
                     </tr>
                 @endforeach
             </table>
         @endif
 
        
-        <form method="post" action='{{route('company.destroy', [$company])}}''>
+        <form method="post" action='{{route('type.destroy', [$type])}}''>
             @csrf
             <button class="btn btn-danger" type="submit">Delete</button>
         </form>
-        <a class="btn btn-secondary" href="{{route('company.index')}}">Back</a>
+        <a class="btn btn-secondary" href="{{route('type.index')}}">Back</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
